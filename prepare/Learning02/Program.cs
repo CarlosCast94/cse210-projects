@@ -23,8 +23,6 @@ class Program
 
          
 
-         job1.Display();
-         job2.Display();
          myresume.Display();
     }
 }
