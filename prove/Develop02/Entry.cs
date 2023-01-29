@@ -4,11 +4,12 @@ public class Entry
 
 public string _prompt;
 public string _answer;
-
 public string _date;
 
 
-public string Date(){
+
+public string Date()
+{
     return DateTime.Now.ToShortDateString();
 }
 

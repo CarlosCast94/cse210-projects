@@ -20,31 +20,26 @@ class Program
                 switch(opcion){
 
 
-            case 1:
-               
-               journal.AddEntry2() ;
-               
-            
-                break;
-            
+                            case 1:
+                            journal.AddEntry2() ;
+                                break;
+                            case 2:
+                            journal.DisplayEntries();
 
-            case 2:
-              journal.DisplayEntries();
-
-                break;
-            
-            case 3:
-                journal.LoadFromFile();
-                break;
-            case 4:
-                journal.SavingToFile();
-                break;
-            case 5:
-                Console.WriteLine("Goodbye");
-                break;
-            default:
-                Console.Write("Please enter a valid choice:\n");
-                break;
+                                break;
+                            
+                            case 3:
+                                journal.LoadFromFile();
+                                break;
+                            case 4:
+                                journal.SavingToFile();
+                                break;
+                            case 5:
+                                Console.WriteLine("Goodbye");
+                                break;
+                            default:
+                                Console.Write("Please enter a valid choice:\n");
+                                break;
 
                     }
         }
