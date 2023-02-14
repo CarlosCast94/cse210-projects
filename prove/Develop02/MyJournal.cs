@@ -35,7 +35,7 @@ public void SavingToFile()
     {
        foreach(Entry entry in _entries)
        {
-            outputFile.WriteLine($"{entry._date} -{entry._prompt} -{entry._answer}");
+        outputFile.WriteLine($"{entry._date} -{entry._prompt} -{entry._answer}");
        }
     }
 
