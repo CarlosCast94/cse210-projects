@@ -16,7 +16,7 @@ public class Word
         {
             letters[i] = '_';
         }
-        _word = letters.ToString();
+        _word = new string (letters);
         _shown = false;
     }
     public string GetWord()
