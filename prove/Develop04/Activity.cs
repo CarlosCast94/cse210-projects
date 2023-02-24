@@ -1,21 +1,54 @@
 public class Activity
 {
-    private string _Activity;
-    private string _Description;
-    private int _Duration;
+    private string _activity;
+    private string _description;
+    private int _duration;
 
-    public Activity (string Activity, string Description,int Duration)
+    public Activity (string activity, string description,int duration)
     {
-        _Activity = Activity;
-        _Description = Description;
-        _Duration = Duration;
+        _activity = activity;
+        _description = description;
+        _duration = duration;
     }
     public string DisplayStart()
     {
-        return $"Welcome to the {_Activity} \n {_Description}";
+        return $"Welcome to the {_activity} \n {_description}";
     }
     public string DisplayEnding()
     {
-        return $"Well done!! You have completed another {_Duration} seconds of the {_Activity}";
+        return $"Well done!! You have completed another {_duration} seconds of the {_activity}";
+    }
+
+    public void PausingShowingSpinner()
+    {
+        List <string> AnimationString = new List<string> ()
+        {
+            "|" ,"/","-","\\"
+
+        };
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(_duration);
+
+        int i = 0;
+
+       while (DateTime.Now <endTime)
+        {
+            string s = AnimationString [i];
+            Console.Write(s);
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+
+            i++;
+
+            if (i>=AnimationString.Count)
+            {
+                i = 0;
+            }
+        }
+
+    }
+    public void PausingShowingCountdownTime()
+    {
+
     }
 }

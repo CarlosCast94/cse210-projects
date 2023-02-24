@@ -4,6 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
+        Activity x = new Activity("","",10);
+        x.PausingShowingSpinner();
+
         int opcion = 0;
         while (opcion !=4)
         {

@@ -1,4 +1,4 @@
-public class ReflectingActivity : Activity
+public class ReflectingActivity
 {
 
 }
