@@ -4,8 +4,10 @@ class Program
 {
     static void Main(string[] args)
     {
-        Activity x = new Activity("","",10);
-        x.PausingShowingSpinner();
+       
+        BreathingActivity x = new BreathingActivity(10);
+        x.DisplayWelcomeMessage();
+        x.DisplayDescription();
 
         int opcion = 0;
         while (opcion !=4)

@@ -1,22 +1,25 @@
 public class Activity
 {
-    private string _activity;
-    private string _description;
+    protected string _welcomeMessage = "";
+    protected string _description = "";
     private int _duration;
 
-    public Activity (string activity, string description,int duration)
+    public Activity (int duration)
     {
-        _activity = activity;
-        _description = description;
         _duration = duration;
     }
-    public string DisplayStart()
+    public void DisplayWelcomeMessage()
     {
-        return $"Welcome to the {_activity} \n {_description}";
+        Console.WriteLine(_welcomeMessage);
+    }
+
+    public void DisplayDescription()
+    {
+        Console.WriteLine(_description);
     }
     public string DisplayEnding()
     {
-        return $"Well done!! You have completed another {_duration} seconds of the {_activity}";
+        return $"Well done!! You have completed another {_duration} seconds of the {_welcomeMessage}";
     }
 
     public void PausingShowingSpinner()
@@ -47,8 +50,32 @@ public class Activity
         }
 
     }
-    public void PausingShowingCountdownTime()
+    public void PausingShowingCountdownTime(int number)
     {
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(number);
+
+       while (DateTime.Now <endTime && number>0)
+        {
+
+            Console.Write(number);
+            Thread.Sleep(1000);
+            if(number.ToString().Length == 1 )
+            {
+                Console.Write("\b \b");
+            }
+            else
+            {
+                Console.Write("\b \b\b \b");
+            }
+           
+
+            number--;
+            
+
+        
+        }
+
 
     }
 }
