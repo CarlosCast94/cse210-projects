@@ -1,11 +1,37 @@
 public class BreathingActivity : Activity
 {
-    public BreathingActivity(int duration) : base (duration)
+    public BreathingActivity(string activity, string description) : base (activity, description)
     {
-        base._welcomeMessage = "Welcome to the breathing Activity";
-        base._description = "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.";
+        
 
     }
+
+    public void BreathIn()
+    {
+        Console.WriteLine("Breath in...");PausingShowingCountdownTime(3);
+    }
+
+    public void BreathOut()
+    {
+        Console.WriteLine("Breath out...");PausingShowingCountdownTime(6);
+    }
+
+    public void BreathComplete()
+    {
+         while(DateTime.Now < _endTime)
+        {
+            BreathIn();
+            if (DateTime.Now <_endTime)
+            {
+                BreathOut();
+            }
+        }
+
+    }
+
+   
+
+    
 
     
 }

@@ -1,28 +1,46 @@
 public class Activity
 {
-    protected string _welcomeMessage = "";
-    protected string _description = "";
+    protected string _activity;
+    protected string _description;
     private int _duration;
 
-    public Activity (int duration)
+    protected DateTime _endTime;
+
+    public Activity (string activity, string description)
     {
-        _duration = duration;
-    }
-    public void DisplayWelcomeMessage()
-    {
-        Console.WriteLine(_welcomeMessage);
+        _activity = activity;
+        _description = description;
     }
 
-    public void DisplayDescription()
+    public void AskForDuration()
     {
+        Console.WriteLine("How long, in seconds, would you like for your session?");
+        _duration = int.Parse(Console.ReadLine());
+    }
+
+    public void InicialMessage()
+    {
+        Console.Clear();
+        Console.WriteLine($"Welcome to the {_activity}.");
         Console.WriteLine(_description);
-    }
-    public string DisplayEnding()
-    {
-        return $"Well done!! You have completed another {_duration} seconds of the {_welcomeMessage}";
+        AskForDuration();
+        Console.WriteLine("Get ready...");
+        PausingShowingSpinner(4);
+        DateTime startTime = DateTime.Now;
+        _endTime = startTime.AddSeconds(_duration);
+
     }
 
-    public void PausingShowingSpinner()
+    public void LastMessage()
+    {
+        Console.WriteLine(" Well done!!");
+        PausingShowingSpinner(3);
+        Console.WriteLine($"You have completed another {_duration} of the {_activity} Activity");
+        PausingShowingSpinner(5);
+    }
+   
+
+    public void PausingShowingSpinner(int _duration)
     {
         List <string> AnimationString = new List<string> ()
         {
