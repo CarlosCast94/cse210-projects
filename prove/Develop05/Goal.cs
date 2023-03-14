@@ -1,19 +1,42 @@
-public abstract class Goal
+public class Goal
 {
-    private string _name;
+    protected string _name;
 
-    private string _description;
+    protected string _description;
 
-    private int _points;
+    protected int _points;
 
-     public Goal (string name, string description, int points)
+    protected int _bonus;
+
+    public string GetName()
     {
-        _name = name;
-        _description = description;
-        _points = points;
+        return _name;
+
+    }
+    public string GetDescription()
+    {
+        return _description;
+    }
+    public  int GetPoint()
+    {
+        return _points;
+    }
+     public int GetBonus()
+    {
+        return _bonus;
     }
 
-    
+      public virtual void GetGoal()
+    {
+         Console.WriteLine("What is the name of your goal?");
+        _name = Console.ReadLine();
+        Console.WriteLine("What is a short description of it?");
+        _description = Console.ReadLine();
+        Console.WriteLine("What is the amount of points associated with this goal");
+        _points = int.Parse(Console.ReadLine());
+        
+    }
+
 
 
     public virtual int RecordEvent()
@@ -28,12 +51,6 @@ public abstract class Goal
     }
 
 
-
-    public virtual void SavingToFile()
-    {
-        
-
-    }
 
     public virtual void LoadFromFile()
 

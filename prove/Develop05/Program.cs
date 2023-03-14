@@ -5,6 +5,10 @@ class Program
     static void Main(string[] args)
     {
         int opcion = 0;
+        SimpleGoal Sgoal = new SimpleGoal();
+        EGoal EternalGoal = new EGoal();
+        CGoal ChecklistGoal = new CGoal();
+        List<Goal> goals = new List<Goal>();
         while (opcion !=6)
         {
                 Console.WriteLine("Menu options:\n"+
@@ -29,19 +33,57 @@ class Program
                                 switch(answer)
                                 {
                                     case 1:
+                                    Sgoal.GetGoal();
+                                    goals.Add(Sgoal);
+
                                         break;
                                     case 2:
+                                    EternalGoal.GetGoal();
+                                    goals.Add(EternalGoal);
                                         break;
                                     case 3:
+                                    ChecklistGoal.GetGoal();
+                                    goals.Add(ChecklistGoal);
                                         break;
                                     
                                 }
 
-
                                 break;
                             case 2:
+                            foreach (Goal y in goals)
+                                {
+                                    string name = y.GetName();
+                                    
+                                    string description = y.GetDescription();
+
+                                    int points = y.GetPoint();
+
+                                    int bonus = y.GetBonus();
+
+
+
+                                    Console.WriteLine($" - [ ] {name} ({description} {bonus})");
+                                }
                                 break;
                             case 3:
+                                Console.WriteLine("Enter a file Name with a file extension (txt)");
+                                    string fileName =  Console.ReadLine();
+
+                                    using (StreamWriter outputFile = new StreamWriter(fileName))
+                                    {
+                                    foreach(Goal x in goals)
+                                    {
+                                        string name = x.GetName();
+                                    
+                                        string description = x.GetDescription();
+
+                                        int points = x.GetPoint();
+
+                                        int bonus = x.GetBonus();
+                                        
+                                        outputFile.WriteLine($"{name} -{description} ");
+                                    }
+                                    }
                                 break;
                             case 4:
                                 break;
