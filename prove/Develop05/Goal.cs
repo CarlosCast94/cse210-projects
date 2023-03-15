@@ -8,6 +8,19 @@ public class Goal
 
     protected int _bonus;
 
+    protected int _totalPoints;
+
+    protected string _check = "[ ]";
+
+    public string GetCheck()
+    {
+        return _check;
+    }
+    public  void SetCheck( string check)
+    {
+        _check = check;
+    }
+
     public string GetName()
     {
         return _name;
@@ -37,6 +50,44 @@ public class Goal
         
     }
 
+    public  virtual void PrintGoal()
+    {
+        Console.WriteLine ($"{_check } {_name} ({_description}) ");
+        Console.WriteLine($"You have {_totalPoints}");
+
+    }
+
+    public virtual void LoadFile()
+    {
+
+    }
+
+    public virtual string SaveFile()
+    {
+        
+        return $"{_name} {_description} {_points} ";
+    }
+  
+
+    public void SetName(string name)
+    {
+        _name = name;
+
+    }
+    public void SetDescription( string description)
+    {
+        _description = description;
+    }
+
+    public void SetPoint (int points)
+    {
+        _points = points;
+    }
+    public void SetBonus ( int bonus)
+    {
+        _bonus = bonus;
+    }
+
 
 
     public virtual int RecordEvent()
@@ -50,13 +101,4 @@ public class Goal
         return true;
     }
 
-
-
-    public virtual void LoadFromFile()
-
-    {  
-         
-
-
-    }
 }

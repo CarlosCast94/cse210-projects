@@ -22,4 +22,14 @@ public class CGoal : Goal
         _extrapoints = int.Parse(Console.ReadLine());
 
     }
+
+    public override void PrintGoal()
+    {
+        Console.WriteLine($" {_check} {_name} ({_description}) --- Currently completed: 0/{_bonus} ");
+    }
+
+    public override string SaveFile()
+    {
+        return $" Checklist Goal - {_name} - {_description} - {_points} - {_extrapoints} - {_bonus}";
+    }
 }

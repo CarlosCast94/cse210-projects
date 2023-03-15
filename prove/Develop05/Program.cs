@@ -35,7 +35,6 @@ class Program
                                     case 1:
                                     Sgoal.GetGoal();
                                     goals.Add(Sgoal);
-
                                         break;
                                     case 2:
                                     EternalGoal.GetGoal();
@@ -45,25 +44,20 @@ class Program
                                     ChecklistGoal.GetGoal();
                                     goals.Add(ChecklistGoal);
                                         break;
+                                     default:
+                                        Console.Write("Please enter a valid choice:\n");
+                                        break;
                                     
                                 }
 
                                 break;
                             case 2:
                             foreach (Goal y in goals)
-                                {
-                                    string name = y.GetName();
-                                    
-                                    string description = y.GetDescription();
+                            {
+                               y.PrintGoal();
 
-                                    int points = y.GetPoint();
+                            }
 
-                                    int bonus = y.GetBonus();
-
-
-
-                                    Console.WriteLine($" - [ ] {name} ({description} {bonus})");
-                                }
                                 break;
                             case 3:
                                 Console.WriteLine("Enter a file Name with a file extension (txt)");
@@ -73,19 +67,25 @@ class Program
                                     {
                                     foreach(Goal x in goals)
                                     {
-                                        string name = x.GetName();
-                                    
-                                        string description = x.GetDescription();
-
-                                        int points = x.GetPoint();
-
-                                        int bonus = x.GetBonus();
                                         
-                                        outputFile.WriteLine($"{name} -{description} ");
+                                        outputFile.WriteLine(x.SaveFile());
                                     }
                                     }
                                 break;
                             case 4:
+                             {      
+                                    goals.Clear();
+                                    Console.WriteLine("What file would you like to load");
+                                    fileName = Console.ReadLine();
+                                    string [] fileComplete = System.IO.File.ReadAllLines(fileName);
+                                    foreach(Goal x in  goals)
+                                    {
+                                        string [] parts = x.Split(" -");
+                                        
+                                    }
+
+
+                             }
                                 break;
                             case 5:
                                 break;
