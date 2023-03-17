@@ -57,6 +57,13 @@ class Program
                                y.PrintGoal();
 
                             }
+                                Sgoal.GetTotalPoints();
+                                EternalGoal.GetTotalPoints();
+                                ChecklistGoal.GetTotalPoints();
+                          
+
+
+                            
 
                                 break;
                             case 3:
@@ -73,21 +80,20 @@ class Program
                                     }
                                 break;
                             case 4:
-                             {      
-                                    goals.Clear();
-                                    Console.WriteLine("What file would you like to load");
-                                    fileName = Console.ReadLine();
-                                    string [] fileComplete = System.IO.File.ReadAllLines(fileName);
-                                    foreach(Goal x in  goals)
-                                    {
-                                        string [] parts = x.Split(" -");
-                                        
-                                    }
-
+                             {
 
                              }
                                 break;
                             case 5:
+                                Console.WriteLine("The goals are:");
+                              foreach (Goal y in goals)
+                            {
+                                y.Record();
+                            }
+                                Console.WriteLine(" Wich goal did you acomplish?");
+                                Sgoal.RecordEvent();
+                                EternalGoal.RecordEvent();
+                                ChecklistGoal.RecordEvent();
                                 break;
                             case 6:
                                 Console.WriteLine("Goodbye");

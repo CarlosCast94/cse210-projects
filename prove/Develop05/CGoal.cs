@@ -2,6 +2,10 @@ public class CGoal : Goal
 {
 
     protected int _extrapoints;
+
+     protected int _bonus;
+
+     protected int _done;
     public CGoal()
     {
         
@@ -24,12 +28,37 @@ public class CGoal : Goal
     }
 
     public override void PrintGoal()
+
     {
-        Console.WriteLine($" {_check} {_name} ({_description}) --- Currently completed: 0/{_bonus} ");
+          {
+           if (_check == false)
+        {
+            Console.Write("[]");
+        }
+        else
+        {
+            Console.Write("[x]");
+            
+        }
+        Console.WriteLine($" {_check} {_name} ({_description}) --- Currently completed: {_done}/{_bonus} ");
+         }
     }
 
     public override string SaveFile()
     {
         return $" Checklist Goal - {_name} - {_description} - {_points} - {_extrapoints} - {_bonus}";
+    }
+
+    public override void RecordEvent()
+    {
+         _answer = int.Parse(Console.ReadLine());
+        if (_answer == 3)
+        {   
+            _check = true;
+            _totalPoints += _points;
+            Console.WriteLine($"Congratulations you earned {_points} points");
+            
+
+        }
     }
 }

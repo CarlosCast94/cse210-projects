@@ -6,38 +6,11 @@ public class Goal
 
     protected int _points;
 
-    protected int _bonus;
-
     protected int _totalPoints;
 
-    protected string _check = "[ ]";
+    protected bool _check;
 
-    public string GetCheck()
-    {
-        return _check;
-    }
-    public  void SetCheck( string check)
-    {
-        _check = check;
-    }
-
-    public string GetName()
-    {
-        return _name;
-
-    }
-    public string GetDescription()
-    {
-        return _description;
-    }
-    public  int GetPoint()
-    {
-        return _points;
-    }
-     public int GetBonus()
-    {
-        return _bonus;
-    }
+    protected int _answer;
 
       public virtual void GetGoal()
     {
@@ -52,10 +25,43 @@ public class Goal
 
     public  virtual void PrintGoal()
     {
+           if (_check == false)
+        {
+            Console.Write("[]");
+        }
+        else
+        {
+            Console.Write("[x]");
+            
+        }
         Console.WriteLine ($"{_check } {_name} ({_description}) ");
-        Console.WriteLine($"You have {_totalPoints}");
 
     }
+
+    public void GetTotalPoints()
+    {
+        Console.WriteLine($"You have {_totalPoints}");
+    }
+
+
+    public virtual void Record()
+    {
+        Console.WriteLine($"{_name}");
+    }
+
+     public virtual void RecordEvent()
+    {
+        _answer = int.Parse(Console.ReadLine());
+        if (_answer == 1)
+        {   
+            _check = true;
+            _totalPoints += _points;
+            Console.WriteLine($"Congratulations you earned {_points} points");
+
+
+        }
+    }
+
 
     public virtual void LoadFile()
     {
@@ -67,34 +73,7 @@ public class Goal
         
         return $"{_name} {_description} {_points} ";
     }
-  
 
-    public void SetName(string name)
-    {
-        _name = name;
-
-    }
-    public void SetDescription( string description)
-    {
-        _description = description;
-    }
-
-    public void SetPoint (int points)
-    {
-        _points = points;
-    }
-    public void SetBonus ( int bonus)
-    {
-        _bonus = bonus;
-    }
-
-
-
-    public virtual int RecordEvent()
-    {   
-        return 0;
-
-    }
 
     public virtual bool Iscomplete()
     {

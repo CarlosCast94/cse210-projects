@@ -7,6 +7,7 @@ public class SimpleGoal : Goal
 
     }
 
+
     public override string SaveFile()
     {
          
