@@ -12,6 +12,10 @@ public class Goal
 
     protected int _answer;
 
+     protected int _checklistPoints;
+
+     protected int _eternalPoints;
+
       public virtual void GetGoal()
     {
          Console.WriteLine("What is the name of your goal?");
@@ -38,9 +42,10 @@ public class Goal
 
     }
 
-    public void GetTotalPoints()
+    public int GetTotalPoints()
     {
-        Console.WriteLine($"You have {_totalPoints}");
+        return _totalPoints = _points + _checklistPoints +_eternalPoints;
+       
     }
 
 
@@ -55,7 +60,7 @@ public class Goal
         if (_answer == 1)
         {   
             _check = true;
-            _totalPoints += _points;
+            _totalPoints += _points+_checklistPoints +_eternalPoints;
             Console.WriteLine($"Congratulations you earned {_points} points");
 
 

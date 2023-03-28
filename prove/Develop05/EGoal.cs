@@ -1,10 +1,13 @@
 public class EGoal : Goal
 {
+    
      public EGoal()
     {
         
 
     }
+
+    
 
      public override string SaveFile()
     {
@@ -36,7 +39,7 @@ public class EGoal : Goal
         if (_answer == 2)
         {   
             _check = false;
-            _totalPoints += _points;
+            _totalPoints += _points+_checklistPoints +_eternalPoints;
             Console.WriteLine($"Congratulations you earned {_points} points");
             
 

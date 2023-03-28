@@ -6,6 +6,7 @@ public class CGoal : Goal
      protected int _bonus;
 
      protected int _done;
+
     public CGoal()
     {
         
@@ -55,7 +56,7 @@ public class CGoal : Goal
         if (_answer == 3)
         {   
             _check = true;
-            _totalPoints += _points;
+            _totalPoints =+ _points+_checklistPoints +_eternalPoints;
             Console.WriteLine($"Congratulations you earned {_points} points");
             
 

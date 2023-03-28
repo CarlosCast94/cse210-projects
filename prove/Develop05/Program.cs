@@ -6,6 +6,7 @@ class Program
     {
         int opcion = 0;
         SimpleGoal Sgoal = new SimpleGoal();
+        Goal NormalGoal = new Goal();
         EGoal EternalGoal = new EGoal();
         CGoal ChecklistGoal = new CGoal();
         List<Goal> goals = new List<Goal>();
@@ -54,12 +55,13 @@ class Program
                             case 2:
                             foreach (Goal y in goals)
                             {
-                               y.PrintGoal();
-
+                                int points = y.GetTotalPoints();
+                                y.PrintGoal();
+                                Console.WriteLine($"{points}");
                             }
-                                Sgoal.GetTotalPoints();
-                                EternalGoal.GetTotalPoints();
-                                ChecklistGoal.GetTotalPoints();
+                                
+                            
+                                
                           
 
 
