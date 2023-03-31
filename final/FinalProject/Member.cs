@@ -1,24 +1,19 @@
-public class Member 
+public class Member
 {
-     protected List<string> _RandomMember = new List<string>
+     protected List<string> _RandomMember = new List<string> ();
+
+      public Member (List<string> RandomMember)
     {
-     "President Nolasco",
-     "Betty Popoca",
-     "Bishop",
-     "Adan Cholula",
-     "Efrain Gomez",
-     "Erika Coraza",
-     "Guadalupe Palacios",
-     "Carlos Castañeda",
-     "Paulina Navarro"
-    };
+        _RandomMember = RandomMember;
+       
+    }
 
      public string GetRandomMember()
     {
         Random Prompt = new Random();
         int x = Prompt.Next(_RandomMember.Count);
         string y = _RandomMember[x];
-        Console.WriteLine($"{y}");
+        _RandomMember.RemoveAt(x);
         return y;
     }
 

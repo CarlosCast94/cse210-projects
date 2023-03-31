@@ -14,18 +14,29 @@ public class Hymns : Member
      "10.Dios manda a profetas"
     };
 
-     public string GetRandomHymn()
+     public Hymns (List<string> RandomMember) : base (RandomMember)
     {
-        Random Prompt = new Random();
-        int x = Prompt.Next(_RandomHymns.Count);
-        string y = _RandomHymns[x];
-        Console.WriteLine($"{y}");
-        return y;
+        
     }
+
+     public void GetRandomHymn()
+    {   
+
+        if (_RandomHymns.Count > 0)
+        {
+            Random hymn = new Random();
+            int x = hymn.Next(0,_RandomHymns.Count);
+            string y = _RandomHymns[x];
+            _RandomHymns.RemoveAt(x);
+             Console.WriteLine($"We are going to sing the hymn: {y}");
+
+        }
+    }
+
+    
 
      public  void DisplayHymn()
     {
         Console.WriteLine($"The direction of the music will be in charge of: {GetRandomMember()} ");
-        Console.WriteLine($"We are going to sing the hymn: {GetRandomHymn()}");
     }
 }
