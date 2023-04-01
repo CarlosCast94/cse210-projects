@@ -9,7 +9,7 @@ public class ReliefSociety : Agenda
      public override string SaveFile()
     {
          
-        return $" Relief Society- {_date } {_description} ";
+        return $" Relief Society- {_date } - {_description} ";
     
     }
 }

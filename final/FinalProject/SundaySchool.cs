@@ -9,7 +9,7 @@ public class SundaySchool : Agenda
      public override string SaveFile()
     {
          
-        return $" Sunday School - {_date } {_description} ";
+        return $" Sunday School- {_date } - {_description} ";
     
     }
 }
